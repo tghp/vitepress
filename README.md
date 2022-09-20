@@ -29,7 +29,7 @@ Vitepress will:
     ```json
     {
       "scripts": {
-        "dev": "vite --mode=watch",
+        "dev": "vite build --mode=watch",
         "build": "vite build"
       }
     }
