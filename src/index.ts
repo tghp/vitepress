@@ -6,6 +6,7 @@ import glob from 'glob-promise';
 
 type VitepressOptions = {
     root: string;
+    alterConfig?: (config: UserConfig) => UserConfig;
     react?: boolean;
     preact?: boolean;
 }
@@ -18,6 +19,7 @@ const getError = (error: string) => {
 const vitepress = (options: VitepressOptions) => {
     const {
         root,
+        alterConfig,
         react: reactEnabled = false,
         preact: preactEnabled = false,
     } = options;
@@ -38,7 +40,7 @@ const vitepress = (options: VitepressOptions) => {
             const js = await glob(`${mainTheme}/assets/src/js/*.{js,ts}`);
             const sass = await glob(`${mainTheme}/assets/src/sass/*.scss`);
 
-            const config: UserConfig = {
+            let config: UserConfig = {
                 base: './',
                 define: {
                     global: 'window',
@@ -77,6 +79,14 @@ const vitepress = (options: VitepressOptions) => {
                 if (preactEnabled) {
                     config.esbuild.jsxFactory = 'h';
                     config.esbuild.jsxFragment = 'Fragment';
+                }
+            }
+
+            if (alterConfig) {
+                const aleteredConfig = alterConfig(config);
+
+                if (aleteredConfig) {
+                    config = aleteredConfig;
                 }
             }
 

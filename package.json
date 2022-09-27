@@ -1,11 +1,16 @@
 {
   "name": "@tghp/vitepress",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Shared vite config across TGHP WordPress projects",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/tghp/vitepress.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "author": "TGHP",
   "license": "ISC",
@@ -15,10 +20,12 @@
   },
   "homepage": "https://github.com/tghp/vitepress#readme",
   "dependencies": {
-    "vite": "^3.1.3",
+    "@types/react": "^18.0.21",
     "@vitejs/plugin-react": "^2.1.0",
     "glob-promise": "^5.0.0",
     "sass": "^1.54.9",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.3",
     "vite-plugin-svgr": "2.2.1"
   }
 }
