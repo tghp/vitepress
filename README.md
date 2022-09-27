@@ -1,14 +1,15 @@
 # vitepress
 
-An opioninated, pre-structured approach to builnding using vite for WordPress projects.
+An opinionated, pre-structured approach to building using vite for WordPress projects.
 
 ## Pre-determined Structure
 
 Vitepress will:
 
-- Look at the primary them in `src/themes`, it can only handle one, but documentation for how to support multiple will come later.
+- Look at the primary theme in `src/themes`, it can only handle one, but documentation for how to support multiple will come later.
 - Compile each script found using this glob: `src/themes/{theme}/assets/src/js/*.js`. Any scripts in sub-folders will not compile and should be used for organisational purposees. See [@tghp/groundwork.js](https://github.com/tghp/groundwork.js)
 - Compile each SCSS stylesheet found using this glob: `src/themes/{theme}/assets/src/sass/*.scss`
+- Put the compiled assets in `src/themes/{theme}/assets/dist`
 
 ## Using vitepress
 
