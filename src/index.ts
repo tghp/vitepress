@@ -66,6 +66,10 @@ const vitepress = (options: VitepressOptions) => {
                 plugins: []
             };
 
+            if (!process.argv.includes('build') && config.build) {
+                config.build.sourcemap = true;
+            }
+
             if (mode === 'watch' && config.build) {
                 config.build.watch = {
                     exclude: ['**/node_modules/**'],
