@@ -66,7 +66,7 @@ const vitepress = (options: VitepressOptions) => {
                 plugins: []
             };
 
-            if (!process.argv.includes('build') && config.build) {
+            if ((!process.argv.includes('build') || (process.argv.includes('build') && process.argv.includes('watch'))) && config.build) {
                 config.build.sourcemap = true;
             }
 
