@@ -68,6 +68,7 @@ const vitepress = (options: VitepressOptions) => {
 
             if ((!process.argv.includes('build') || (process.argv.includes('build') && process.argv.includes('watch'))) && config.build) {
                 config.build.sourcemap = true;
+                config.build.minify = false;
             }
 
             if (mode === 'watch' && config.build) {
