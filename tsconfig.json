@@ -1,17 +1,20 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "declaration": true,
-        "outDir": "dist",
-        "strict": true,
-        "typeRoots": ["./typings", "./node_modules/@types"],
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true
-    },
-    "include": [
-        "typings/**/*.d.ts",
-        "**/*.ts"
-    ]
-  }
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "typeRoots": [
+      "./typings",
+      "./node_modules/@types"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "typings/**/*.d.ts",
+    "**/*.ts"
+  ]
+}
