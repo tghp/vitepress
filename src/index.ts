@@ -78,7 +78,10 @@ const vitepress = (options: VitepressOptions) => {
       }
 
       if ((reactEnabled || preactEnabled) && config.plugins && config.esbuild) {
-        config.plugins.push(react());
+        if (reactEnabled) {
+          config.plugins.push(react());
+        }
+
         config.plugins.push(svgr());
 
         if (preactEnabled) {

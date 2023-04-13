@@ -21,7 +21,7 @@ Vitepress will:
     import vitepress from '@tghp/vitepress';
     
     export default vitepress({
-        root: __dirname,
+      root: __dirname,
     });
     ```
 
@@ -37,14 +37,17 @@ Vitepress will:
     ```
    
 ### Options
-| Key    | Value                                                                                            |
-|--------|--------------------------------------------------------------------------------------------------|
-| react  | Enables React transpiling allowing JSX/TSX.                                                      |
-| preact | Used in conjuction with `react: true`, Vite will make necessary changes to allow preact to work. |
+ | Key    | Value                                                                                                                                                                                                     |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| react  | Enables React transpiling allowing JSX/TSX.                                                                                                                                                               |
+| preact | Used in conjuction with `react: true`, Vite will make necessary changes to allow preact to work. You'll also want to add `jsxImportSource` to your tsconfig.json for the best IDE experience (see below). |
 
 ## Technology specific
-### React
-If you are using React, you will need to add the following pass `react` as true to the vitepress options.
+### React (or Preact)
+If you are using **React**, you will need to add the following pass `react` as true to the vitepress options.
+
+For **Preact**, pass `preact` as true instead and add `"jsxImportSource": "preact"` to tsconfig.json `compilerOptions`. For smaller/simpler usage of React in websites,
+Preact is the recommended option.
 
 #### SVGs
 We add support for SVGs via [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr) allowing importing of SVGs as follows:
