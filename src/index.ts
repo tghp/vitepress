@@ -62,6 +62,9 @@ const vitepress = (options: VitepressOptions) => {
           outDir: `${mainTheme}/assets/dist`,
           assetsDir: '',
         },
+        resolve: {
+          alias: {}
+        },
         esbuild: {},
         plugins: []
       };
@@ -87,14 +90,21 @@ const vitepress = (options: VitepressOptions) => {
         if (preactEnabled) {
           config.esbuild.jsxFactory = 'h';
           config.esbuild.jsxFragment = 'Fragment';
+
+          if (config.resolve) {
+            config.resolve.alias = {
+              ...config.resolve.alias,
+              react: 'preact/compat',
+            }
+          }
         }
       }
 
       if (alterConfig) {
-        const aleteredConfig = alterConfig(config);
+        const alteredConfig = alterConfig(config);
 
-        if (aleteredConfig) {
-          config = aleteredConfig;
+        if (alteredConfig) {
+          config = alteredConfig;
         }
       }
 
