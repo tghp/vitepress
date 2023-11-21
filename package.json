@@ -1,6 +1,6 @@
 {
   "name": "@tghp/vitepress",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Shared vite config across TGHP WordPress projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "author": "TGHP",
   "license": "ISC",
