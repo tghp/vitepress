@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import type { UserConfigFn, UserConfig } from 'vite/dist/node';
 import react from '@vitejs/plugin-react';
-import svgr from 'vite-plugin-svgr'
+import svgr from 'vite-plugin-svgr';
 import glob from 'glob-promise';
 
 type VitepressOptions = {
@@ -9,12 +9,12 @@ type VitepressOptions = {
   alterConfig?: (config: UserConfig) => UserConfig;
   react?: boolean;
   preact?: boolean;
-}
+};
 
 const getError = (error: string) => {
   console.error(error);
   return new Error(error);
-}
+};
 
 const vitepress = (options: VitepressOptions) => {
   const {
@@ -28,7 +28,7 @@ const vitepress = (options: VitepressOptions) => {
     throw new Error('No path provided');
   }
 
-  const getConfig: UserConfigFn = async ({command, mode}) => {
+  const getConfig: UserConfigFn = async ({ command, mode }) => {
     const theme = await glob('src/themes/*');
 
     if (theme.length === 0) {
@@ -51,25 +51,26 @@ const vitepress = (options: VitepressOptions) => {
             output: {
               assetFileNames: '[name][extname]',
               chunkFileNames: '[name].js',
-              entryFileNames: '[name].js'
+              entryFileNames: '[name].js',
             },
-            input: [
-              ...js,
-              ...sass,
-            ],
+            input: [...js, ...sass],
           },
           polyfillModulePreload: false,
           outDir: `${mainTheme}/assets/dist`,
           assetsDir: '',
         },
         resolve: {
-          alias: {}
+          alias: {},
         },
         esbuild: {},
-        plugins: []
+        plugins: [],
       };
 
-      if ((!process.argv.includes('build') || (process.argv.includes('build') && process.argv.includes('watch'))) && config.build) {
+      if (
+        (!process.argv.includes('build') ||
+          (process.argv.includes('build') && process.argv.includes('watch'))) &&
+        config.build
+      ) {
         config.build.sourcemap = true;
         config.build.minify = false;
       }
@@ -95,7 +96,7 @@ const vitepress = (options: VitepressOptions) => {
             config.resolve.alias = {
               ...config.resolve.alias,
               react: 'preact/compat',
-            }
+            };
           }
         }
       }
@@ -113,6 +114,6 @@ const vitepress = (options: VitepressOptions) => {
   };
 
   return defineConfig(getConfig);
-}
+};
 
 export default vitepress;
