@@ -42,9 +42,6 @@ const vitepress = (options: VitepressOptions) => {
 
       let config: UserConfig = {
         base: './',
-        define: {
-          global: 'window',
-        },
         build: {
           manifest: true,
           rollupOptions: {
