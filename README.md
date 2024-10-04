@@ -53,5 +53,5 @@ Preact is the recommended option.
 We add support for SVGs via [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr) allowing importing of SVGs as follows:
 
 ```javascript
-import { ReactComponent as Logo } from './logo.svg';
+import Logo from './logo.svg?react';
 ```
