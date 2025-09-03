@@ -5,21 +5,15 @@
     "lib": ["dom", "esnext"],
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "declaration": true,
     "outDir": "dist",
     "strict": true,
-    "typeRoots": [
-      "./typings",
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "typings/**/*.d.ts",
-    "**/*.ts"
-  ]
+  "include": ["typings/**/*.d.ts", "**/*.ts"]
 }

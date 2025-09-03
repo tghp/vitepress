@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import type { UserConfigFn, UserConfig } from 'vite/dist/node';
+import type { UserConfigFn, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import glob from 'glob-promise';
@@ -42,6 +42,7 @@ const vitepress = (options: VitepressOptions) => {
 
       let config: UserConfig = {
         base: './',
+        clearScreen: false,
         build: {
           manifest: true,
           rollupOptions: {
