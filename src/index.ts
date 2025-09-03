@@ -61,6 +61,13 @@ const vitepress = (options: VitepressOptions) => {
           alias: {},
         },
         esbuild: {},
+        css: {
+          preprocessorOptions: {
+            sass: {
+              loadPaths: [`${mainTheme}/assets/src/sass`],
+            },
+          },
+        },
         plugins: [],
       };
 
