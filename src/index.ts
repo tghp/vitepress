@@ -48,7 +48,7 @@ const vitepress = (options: VitepressOptions) => {
           rollupOptions: {
             output: {
               assetFileNames: '[name][extname]',
-              chunkFileNames: '[name].js',
+              chunkFileNames: '[name]-[hash].js',
               entryFileNames: '[name].js',
             },
             input: [...js, ...sass],
